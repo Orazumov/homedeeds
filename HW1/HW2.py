@@ -6,7 +6,7 @@ list_1 = [5, 'hello', True, 2.5, [1, 2], {5, 6, 9}, (4, 5, 6)]
 i=0
 while(i <= 6):
     print(type(list_1[i]))
-    i +=1
+    i += 1
 
 #2. Для списка реализовать обмен значений соседних элементов, т.е. Значениями обмениваются элементы с индексами 0 и 1, 2 и 3 и т.д.
 # При нечетном количестве элементов последний сохранить на своем месте. Для заполнения списка элементов необходимо использовать функцию input().
@@ -79,6 +79,8 @@ for z in (string.split()):
 #Пользователь ввел число 1. Результат: 7, 5, 3, 3, 2, 1.
 #Набор натуральных чисел можно задать непосредственно в коде, например, my_list = [7, 5, 3, 3, 2].
 
+# первый вариант через sort (НЕПРАВИЛЬНО!):
+
 natural_numbers = [7, 5, 3, 3, 2]
 
 print('Изначальный рейтинг: ', natural_numbers)
@@ -89,6 +91,39 @@ for k in range(5):
 natural_numbers.sort(reverse=True)
 
 print('Рейтинг после добавления введенных чисел: ', natural_numbers)
+
+# второй вариант:
+
+natural_numbers_2 = [7, 5, 3, 3, 2]
+
+print('Изначальный рейтинг: ', natural_numbers_2)
+
+natural_numbers_2_result = []
+
+for k in range(4):
+
+    user_number = abs((int(input('Введите число для размещения в рейтинг: '))))
+
+    index = 0
+    natural_numbers_2_result.clear()
+    for d in range(len(natural_numbers_2)):
+        if d == 0 and user_number > natural_numbers_2[d]:
+            break
+        elif user_number <= natural_numbers_2[d]:
+            index += 1
+            continue
+
+    if index == 0:
+        natural_numbers_2_result = sum([[user_number], natural_numbers_2], [])
+    else:
+        natural_numbers_2_result.append(natural_numbers_2[:index])
+        natural_numbers_2_result.insert(index, [user_number])
+        if natural_numbers_2[index:]:
+            natural_numbers_2_result.insert((index+1), natural_numbers_2[index:])
+        natural_numbers_2_result = sum(natural_numbers_2_result, [])
+
+    print('Рейтинг после добавления введенных чисел: ', natural_numbers_2_result)
+
 
 #6. *Реализовать структуру данных «Товары». Она должна представлять собой список кортежей.
 # Каждый кортеж хранит информацию об отдельном товаре. В кортеже должно быть два элемента — номер товара и словарь
