@@ -254,7 +254,7 @@ print(type(new_data))
 print(new_data)
 
 # снова стал словарем!
-# но json поддерж. не все типы, он поддерж: None (= Nil), int, float, list, dict, (NOT tuple!), bool, str
+# но json поддерж. не все типы, он поддерж: None (= NUll), int, float, list, dict, (NOT tuple!), bool, str
 # в json часто хранят состояние программ, какие-то простенькие бд.
 
 # если либа ставится через PIP - исп. относ. пути.
