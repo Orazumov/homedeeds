@@ -33,7 +33,7 @@ ford = Auto('Ford', 'Red', 'Mustang')
 
 print(ford) #выдасться f строка.
 
-# управляем сбоощиком мусора:
+# управляем сборщиком мусора:
 
     def __del__(self):
         print(f'Crash {self.model}')
